@@ -2,7 +2,7 @@ package package1;
 
 import java.awt.Graphics;
 
-public class TrainCercle {
+public class TrainCercle implements IObjetAnimable {
 
 	 //------- variables d'instance (attributs) --------------------------
     /**
@@ -10,20 +10,20 @@ public class TrainCercle {
      */
     private final Cercle[] lesCercles;
     /**
-     * la début du train de cercle
+     * la dï¿½but du train de cercle
      */
     protected CercleDebut leDebut;
     /**
-     * la zÃ´ne de dessin où se dÃ©place le train de cercle
+     * la zÃ´ne de dessin oï¿½ se dÃ©place le train de cercle
      */
     private Dessin dess;
 
     //-------- Constructeurs ---------------------------------------------
     /**
-     * crée un train de cercle en spécifiant la feuille de dessin dans laquelle elle
-     * se déplace, le rayon et le nombre de ces cercles.
+     * crï¿½e un train de cercle en spï¿½cifiant la feuille de dessin dans laquelle elle
+     * se dï¿½place, le rayon et le nombre de ces cercles.
      *
-     * @param d la feuille de dessin où se situe le train de cercle
+     * @param d la feuille de dessin oï¿½ se situe le train de cercle
      * @param r rayon des cerlces du train 
      * @param nbCercle nombre de cercles du train 
      */
@@ -38,28 +38,28 @@ public class TrainCercle {
      * Ce constructeur a une visibilitÃ© protected. Il n'est pas public, car sa 
      * vocation n'est pas d'Ãªtre invoquÃ© par un programme applicatif. Il est prÃ©vu
      * pour un usage interne, en particulier pour d'Ã©ventuelles sous classes
-     * de trainCercle, afin de pouvoir crÃ©er des trains de cercles avec un débutCercle de type différent
+     * de trainCercle, afin de pouvoir crÃ©er des trains de cercles avec un dï¿½butCercle de type diffï¿½rent
      *
      *
      * @param xInit la feuille de dessin oÃ¹ se situe le train de cercle
-     * @param CercleDebut le cercle de début du train;
+     * @param CercleDebut le cercle de dï¿½but du train;
      * @param r rayon des cercles de train
      * @param nbCercle nombre de cercle du train
      */
     protected TrainCercle(Dessin d, CercleDebut deb, int r, int nbCercle) {
 
     	 this.dess = d;
-         // crÃ©e un cercle de début au centre de la fenÃªtre et de pointe 0
+         // crÃ©e un cercle de dï¿½but au centre de la fenÃªtre et de pointe 0
          this.leDebut = deb;
          int xTete = leDebut.getX();
          int yTete = leDebut.getY();
 
         // 1) crÃ©er le tableau
         lesCercles = new Cercle[nbCercle];
-        // 2) remplir le tableau en créeant les cercles et en stockant
-        //    leur référence dans les éléments du tableau.
-        // créer les cercles, Ã  gauche les uns des autres. Le premier
-        // (Cercle nÂ° 0) Ã©tant Ã  gauche du début
+        // 2) remplir le tableau en crï¿½eant les cercles et en stockant
+        //    leur rï¿½fï¿½rence dans les ï¿½lï¿½ments du tableau.
+        // crï¿½er les cercles, Ã  gauche les uns des autres. Le premier
+        // (Cercle nÂ° 0) Ã©tant Ã  gauche du dï¿½but
         for (int i = 0; i < lesCercles.length; i++) {
             lesCercles[i] = new Cercle(xTete - (i + 1) * r, yTete, r);
         }
@@ -84,7 +84,7 @@ public class TrainCercle {
     /**
      * fait effectuer Ã  au train de cercle un dÃ©placement Ã©lÃ©mentaire en avant dans la
      * direction indiquÃ©e par sa pointe. La pointe subit une dÃ©viation alÃ©toire d'un
-     * angle de plus ou moins 30 degrÃ©s. Si le début du train atteint un
+     * angle de plus ou moins 30 degrÃ©s. Si le dï¿½but du train atteint un
      * des bords , sa pointe est alors dÃ©viÃ© de 90Â°.
      */
    
@@ -99,13 +99,13 @@ public class TrainCercle {
             lesCercles[0].placerA(leDebut.getX(), leDebut.getY());
         }
 
-        // calcule une nouvelle pointe qui garanti que le cercle de ddébut reste dans la zone
+        // calcule une nouvelle pointe qui garanti que le cercle de ddï¿½but reste dans la zone
         // de dessin
         leDebut.devierPointe(-30.0 + Math.random() * 60.0);
         while (!leDebut.pointeOK(dess.getLargeur(), dess.getHauteur())) {
         	leDebut.devierPointe(10);
         }
-        // fait avancer le cercle de ddébut
+        // fait avancer le cercle de ddï¿½but
         leDebut.deplacerSelonPointe();
     }
 

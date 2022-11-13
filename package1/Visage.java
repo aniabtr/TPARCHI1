@@ -2,12 +2,12 @@ package package1;
 
 import java.awt.Graphics;
 
-public class Visage implements IObjetDessinable {
+public class Visage implements IObjetAnimable {
 	 // ---------------------------------------------------------
     // Les constantes de la classe Visage
     // ---------------------------------------------------------
     /**
-     * Largeur par défaut pour un Visage
+     * Largeur par dï¿½faut pour un Visage
      */
     public static final int LARGEUR_DEFAUT = 50;
 
@@ -27,7 +27,7 @@ public class Visage implements IObjetDessinable {
     public static final int HAUTEUR_MIN = 15;
 
     /**
-     * déplacement par défaut.
+     * dï¿½placement par dï¿½faut.
      */
     public static final int DEPLACEMENT_DEFAUT = 5;
 
@@ -35,17 +35,17 @@ public class Visage implements IObjetDessinable {
     // Les attributs (variables d'instance) de la classe VisageRond
     // -------------------------------------------------------------
     /**
-     * La zône de dessin dans laquelle se trouve le Visage.
+     * La zï¿½ne de dessin dans laquelle se trouve le Visage.
      */
     private Dessin d;
 
     /**
-     * abscisse coin supérieur gauche du rectangle englobant le visage.
+     * abscisse coin supï¿½rieur gauche du rectangle englobant le visage.
      */
     private int xhg = 0;
 
     /**
-     * ordonnée coin supérieur gauche du rectangle englobant le visage.
+     * ordonnï¿½e coin supï¿½rieur gauche du rectangle englobant le visage.
      */
     private int yhg = 0;
 
@@ -60,17 +60,17 @@ public class Visage implements IObjetDessinable {
     private int hauteur;
 
     /**
-     * déplacement élémentaire horizontal du visage. Par défaut 5 pixels.
+     * dï¿½placement ï¿½lï¿½mentaire horizontal du visage. Par dï¿½faut 5 pixels.
      */
     private int dx = DEPLACEMENT_DEFAUT;
 
     /**
-     * deplacement élémentaire vertical du visage. Par défaut 5 pixels.
+     * deplacement ï¿½lï¿½mentaire vertical du visage. Par dï¿½faut 5 pixels.
      */
     private int dy = DEPLACEMENT_DEFAUT;
 
     /**
-     * indique l'état du visage (impassible ou souriant). Si true le visage est
+     * indique l'ï¿½tat du visage (impassible ou souriant). Si true le visage est
      * impassible, si false le visage est souriant.
      */
     private boolean impassible = true;
@@ -79,26 +79,26 @@ public class Visage implements IObjetDessinable {
     // Les constructeurs de la classe VisageRond
     // ---------------------------------------------------------
     /**
-     * Constructeur avec valeurs par défaut. Crée un visage de taille 50x50 dont
-     * le coin supérieur gauche du rectangle englobant est situé au centre de la
-     * zône de dessin. Ce visage est également doté d'un déplacement élémentaire
+     * Constructeur avec valeurs par dï¿½faut. Crï¿½e un visage de taille 50x50 dont
+     * le coin supï¿½rieur gauche du rectangle englobant est situï¿½ au centre de la
+     * zï¿½ne de dessin. Ce visage est ï¿½galement dotï¿½ d'un dï¿½placement ï¿½lï¿½mentaire
      * horizontal et vertical de +15 pixels.
      *
-     * @param d la zone de dessin dans laquelle le visage rond se déplace
+     * @param d la zone de dessin dans laquelle le visage rond se dï¿½place
      */
     public Visage(Dessin d) {
         this(d, d.getLargeur() / 2, d.getHauteur() / 2, LARGEUR_DEFAUT, HAUTEUR_DEFAUT);
     }
 
     /**
-     * Constructeur avec positionnement du visage. Crée un visage de taille
-     * 50x50 mais dont la position du coin supérieur gauche du rectangle
-     * englobant est fixée à la création. Ce visage est doté d'un déplacement
-     * élémentaire horizontal et vertical de +15 pixels.
+     * Constructeur avec positionnement du visage. Crï¿½e un visage de taille
+     * 50x50 mais dont la position du coin supï¿½rieur gauche du rectangle
+     * englobant est fixï¿½e ï¿½ la crï¿½ation. Ce visage est dotï¿½ d'un dï¿½placement
+     * ï¿½lï¿½mentaire horizontal et vertical de +15 pixels.
      *
-     * @param d la zone de dessin dans laquelle le visage rond se déplace
-     * @param xg abscisse du coin supérieur gauche du rectangle englobant.
-     * @param yg ordonnée du coin supérieur gauche du rectangle englobant.
+     * @param d la zone de dessin dans laquelle le visage rond se dï¿½place
+     * @param xg abscisse du coin supï¿½rieur gauche du rectangle englobant.
+     * @param yg ordonnï¿½e du coin supï¿½rieur gauche du rectangle englobant.
      */
     public Visage(Dessin d, int xg, int yg) {
         this(d, xg, yg, LARGEUR_DEFAUT, HAUTEUR_DEFAUT);
@@ -106,17 +106,17 @@ public class Visage implements IObjetDessinable {
     }
 
     /**
-     * Constructeur avec positionnement du visage et définition de sa taille.
-     * Crée un visage dont les diemensions et la position du coin supérieur
-     * gauche du rectangle englobant sont fixées à la création. Ce visage est
-     * doté d'un déplacement élémentaire horizontal et vertical de +5 pixels.
+     * Constructeur avec positionnement du visage et dï¿½finition de sa taille.
+     * Crï¿½e un visage dont les diemensions et la position du coin supï¿½rieur
+     * gauche du rectangle englobant sont fixï¿½es ï¿½ la crï¿½ation. Ce visage est
+     * dotï¿½ d'un dï¿½placement ï¿½lï¿½mentaire horizontal et vertical de +5 pixels.
      *
-     * @param d la zone de dessin dans laquelle le visage rond se déplace
-     * @param xg abscisse du coin supérieur gauche du rectangle englobant.
-     * @param yg abscisse du coin supérieur gauche du rectangle englobant.
-     * @param larg largeur du visage. La largeur doit être supérieure à
+     * @param d la zone de dessin dans laquelle le visage rond se dï¿½place
+     * @param xg abscisse du coin supï¿½rieur gauche du rectangle englobant.
+     * @param yg abscisse du coin supï¿½rieur gauche du rectangle englobant.
+     * @param larg largeur du visage. La largeur doit ï¿½tre supï¿½rieure ï¿½
      * LARGEUR_MIN
-     * @param haut hauteur du visage. La hauteur doit être supérieure à
+     * @param haut hauteur du visage. La hauteur doit ï¿½tre supï¿½rieure ï¿½
      * HAUTEUR_MIN
      *
      * @see VisageRond#LARGEUR_DEFAUT
@@ -131,18 +131,18 @@ public class Visage implements IObjetDessinable {
     }
 
     /**
-     * Donne la valeur du déplacement élémentaire horizontal.
+     * Donne la valeur du dï¿½placement ï¿½lï¿½mentaire horizontal.
      *
-     * @return valeur de dx, déplacement élémentaire horizontal.
+     * @return valeur de dx, dï¿½placement ï¿½lï¿½mentaire horizontal.
      */
     public int getDx() {
         return dx;
     }
 
     /**
-     * Fixe déplacement élémentaire horizontal.
+     * Fixe dï¿½placement ï¿½lï¿½mentaire horizontal.
      *
-     * @param v Valeur à affecter à dx, déplacement élémentaire horizontal.
+     * @param v Valeur ï¿½ affecter ï¿½ dx, dï¿½placement ï¿½lï¿½mentaire horizontal.
      */
     public void setDx(int v) {
         this.dx = v;
@@ -157,7 +157,7 @@ public class Visage implements IObjetDessinable {
     }
 
     /**
-     * Inverse sens du déplacement horizontal.
+     * Inverse sens du dï¿½placement horizontal.
      */
     public void inverserDx() {
         dx = -dx;
@@ -165,7 +165,7 @@ public class Visage implements IObjetDessinable {
     }
 
     /**
-     * Inverse sens du déplacement vertical.
+     * Inverse sens du dï¿½placement vertical.
      */
     public void inverserDy() {
         dy = -dy;
@@ -173,7 +173,7 @@ public class Visage implements IObjetDessinable {
     }
 
     /**
-     * Inverse sens des déplacements horizontal et vertical.
+     * Inverse sens des dï¿½placements horizontal et vertical.
      */
     public void inverserDxEtDy() {
         dx = -dx;
@@ -182,17 +182,17 @@ public class Visage implements IObjetDessinable {
     }
 
     /**
-     * change l'expression du visage. Si il était impassible, il devient
-     * souriant, si il était souriant il devient impassible.
+     * change l'expression du visage. Si il ï¿½tait impassible, il devient
+     * souriant, si il ï¿½tait souriant il devient impassible.
      */
     public void changeExpression() {
         impassible = !impassible;
     }
 
     /**
-     * Fait effectuer au visage un déplacement élementaire. La position du coin
-     * supérieur gauche du visage est modifiée en lui ajoutant le déplacement
-     * élémentaire défini par dx et dy.
+     * Fait effectuer au visage un dï¿½placement ï¿½lementaire. La position du coin
+     * supï¿½rieur gauche du visage est modifiï¿½e en lui ajoutant le dï¿½placement
+     * ï¿½lï¿½mentaire dï¿½fini par dx et dy.
      */
     public void deplacerSansRebond() {
         xhg += dx;
@@ -200,10 +200,10 @@ public class Visage implements IObjetDessinable {
     }
 
     /**
-     * Fait effectuer au visage un déplacement élementaire. La position du coin
-     * supérieur gauche du visage est modifiée en lui ajoutant le déplacement
-     * élémentaire défini par dx et dy. Si le visage dépasse de l'un des bords
-     * de la zone de dessin il inverse sa direction de déplacement.
+     * Fait effectuer au visage un dï¿½placement ï¿½lementaire. La position du coin
+     * supï¿½rieur gauche du visage est modifiï¿½e en lui ajoutant le dï¿½placement
+     * ï¿½lï¿½mentaire dï¿½fini par dx et dy. Si le visage dï¿½passe de l'un des bords
+     * de la zone de dessin il inverse sa direction de dï¿½placement.
      */
 	public void deplacer() {
         if (bordGaucheAtteint() || bordDroitAtteint()) {
@@ -216,10 +216,10 @@ public class Visage implements IObjetDessinable {
     }
 
     /**
-     * Evalue si le visage atteint le bord gauche de la zône de dessin.
+     * Evalue si le visage atteint le bord gauche de la zï¿½ne de dessin.
      *
      * @return <code>true</code> si le rectangle englobant le visage intersecte
-     * le coté gauche de la zône de dessin, <code>
+     * le cotï¿½ gauche de la zï¿½ne de dessin, <code>
      *         false</code> sinon.
      */
     public boolean bordGaucheAtteint() {
@@ -227,10 +227,10 @@ public class Visage implements IObjetDessinable {
     }
 
     /**
-     * Evalue si le visage atteint le bord droit de la zône de dessin.
+     * Evalue si le visage atteint le bord droit de la zï¿½ne de dessin.
      *
      * @return <code>true</code> si le rectangle englobant le visage intersecte
-     * le coté droit de la zône de dessin, <code>
+     * le cotï¿½ droit de la zï¿½ne de dessin, <code>
      *         false</code> sinon.
      */
     public boolean bordDroitAtteint() {
@@ -238,10 +238,10 @@ public class Visage implements IObjetDessinable {
     }
 
     /**
-     * Evalue si le visage atteint le bord haut de la zône de dessin.
+     * Evalue si le visage atteint le bord haut de la zï¿½ne de dessin.
      *
      * @return <code>true</code> si le rectangle englobant le visage intersecte
-     * le coté haut de la zône de dessin, <code>
+     * le cotï¿½ haut de la zï¿½ne de dessin, <code>
      *         false</code> sinon.
      */
     public boolean bordHautAtteint() {
@@ -249,10 +249,10 @@ public class Visage implements IObjetDessinable {
     }
 
     /**
-     * Evalue si le visage atteint le bord bas de la zône de dessin.
+     * Evalue si le visage atteint le bord bas de la zï¿½ne de dessin.
      *
      * @return <code>true</code> si le rectangle englobant le visage intersecte
-     * le coté bas de la zône de dessin, <code>
+     * le cotï¿½ bas de la zï¿½ne de dessin, <code>
      *         false</code> sinon.
      */
     public boolean bordBasAtteint() {
@@ -260,10 +260,10 @@ public class Visage implements IObjetDessinable {
     }
 
     /**
-     * Evalue si le visage atteint l'un des bords de la zône de dessin.
+     * Evalue si le visage atteint l'un des bords de la zï¿½ne de dessin.
      *
      * @return <code>true</code> si le rectangle englobant le visage intersecte
-     * l'un des cotés de la zône de dessin, <code>
+     * l'un des cotï¿½s de la zï¿½ne de dessin, <code>
      *         false</code> sinon.
      */
     public boolean bordAtteint() {
@@ -274,7 +274,7 @@ public class Visage implements IObjetDessinable {
     /**
      * affiche le visage.
      *
-     * @param g le contexte graphique de la zône de dessin en charge de
+     * @param g le contexte graphique de la zï¿½ne de dessin en charge de
      * l'affichage.
      *
      * @see java.awt.Graphics
