@@ -14,16 +14,16 @@ public class LancerApp1 {
 		BufferedImage imgVador= ImageIO.read(new File("images/person2.png"));
 		BufferedImage imgLeila= ImageIO.read(new File("images/person1.png"));
 		
-		// création de la fenêtre de l'application
+		// crï¿½ation de la fenï¿½tre de l'application
 		JFrame laFenetre= new JFrame("Animation Train, etc.");
 		laFenetre.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		laFenetre.setSize(512, 512);
 		
-		// création de la zône de dessin dans la fenêtre
+		// crï¿½ation de la zï¿½ne de dessin dans la fenï¿½tre
 		Dessin d = new Dessin();
 		laFenetre.getContentPane().add(d);
 		
-		// affiche la fenêtre
+		// affiche la fenï¿½tre
 		laFenetre.setVisible(true);
 		
 		// les trains de cercles avec image et en couleur
@@ -36,13 +36,17 @@ public class LancerApp1 {
 		d.ajouterObjet(lesTrains[i]);
 		}
 		
+		//dessin du visage
+		 Visage v= new Visage(d);
+     	 d.ajouterObjet(v);
+
 		
 		while(true) {
-		// la zone de dessin se réaffiche
+		// la zone de dessin se rï¿½affiche
 		d.repaint();
 		// un temps de pause pour avoir le temps de voir le nouveau dessin
 		d.pause(50);
-		//réaliser à tous les trains un déplacement élémentaire
+		//rï¿½aliser ï¿½ tous les trains un dï¿½placement ï¿½lï¿½mentaire
 		d.animer();
 		
 		}
