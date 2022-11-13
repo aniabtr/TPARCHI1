@@ -39,8 +39,13 @@ public class LancerApp1 {
 		//dessin du visage
 		 Visage v= new Visage(d);
      	 d.ajouterObjet(v);
+        //dessin de l'etoile verte
+     	 Forme e=new Etoile(230,250,10,8.f,Color.green, Color.green);
+     	 d.ajouterObjet(e);
+     	//dessin du polygone noir
+     	 Forme p=new PolygoneRegulier(30,250,20,20,4.0f,Color.black, Color.black);
+     	 d.ajouterObjet(p);
 
-		
 		while(true) {
 		// la zone de dessin se r�affiche
 		d.repaint();
