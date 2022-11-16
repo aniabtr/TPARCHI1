@@ -21,6 +21,7 @@ public class LancerApp1 {
 		
 		// cr�ation de la z�ne de dessin dans la fen�tre
 		Dessin d = new Dessin();
+		
 		laFenetre.getContentPane().add(d);
 		
 		// affiche la fen�tre
@@ -43,10 +44,18 @@ public class LancerApp1 {
      	 Forme e=new Etoile(230,250,10,8.f,Color.green, Color.green);
      	 d.ajouterObjet(e);
      	//dessin du polygone noir
-     	 Forme p=new PolygoneRegulier(30,250,20,20,4.0f,Color.black, Color.black);
+     	 Forme p=new PolygoneRegulier(5,240,40,40,4.0f,Color.black, Color.black);
      	 d.ajouterObjet(p);
-
-		while(true) {
+     	 
+     	 Forme e3=new Etoile(230,250,10,8.f,Color.yellow, Color.yellow);
+     	 MvtCirculaire mvt=new MvtCirculaire(110,230,34,56.4,32.6);
+     	 AnimationForme animfor= new AnimationForme(e3,mvt);
+         d.ajouterObjet(animfor);
+     	 MvtCirculaire mvt2=new MvtCirculaire(90,150,34,56.4,32.6);
+         Forme p2=new PolygoneRegulier(5,240,40,40,4.0f,Color.gray, Color.gray);
+         AnimationForme animfor2= new AnimationForme(p2,mvt2);
+         d.ajouterObjet(animfor2);	
+         while(true) {
 		// la zone de dessin se r�affiche
 		d.repaint();
 		// un temps de pause pour avoir le temps de voir le nouveau dessin
